@@ -40,7 +40,7 @@ namespace eTickets.Data.Cart
             {
                 shoppingCartItem = new ShoppingCartItem()
                 {
-                    ShoppingCartId = ShoppingCartId,
+                   ShoppingCartId = ShoppingCartId,
                     Movie = movie,
                     Amount = 1
                 };
@@ -60,7 +60,7 @@ namespace eTickets.Data.Cart
 
             if (shoppingCartItem != null)
             {
-                if (shoppingCartItem.Amount > 1)
+               if (shoppingCartItem.Amount > 1)
                 {
                     shoppingCartItem.Amount--;
                 }

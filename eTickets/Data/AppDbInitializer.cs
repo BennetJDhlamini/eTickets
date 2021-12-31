@@ -1,5 +1,7 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data.Static;
+using eTickets.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -319,7 +321,7 @@ namespace eTickets.Data
 
         }
 
-        /*public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
+        public static async Task SeedUsersAndRolesAsync(IApplicationBuilder applicationBuilder)
         {
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
@@ -367,6 +369,6 @@ namespace eTickets.Data
                     await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
                 }
             }
-        }*/
+        }
     }
 }

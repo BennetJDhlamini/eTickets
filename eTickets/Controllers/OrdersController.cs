@@ -20,17 +20,18 @@ namespace eTickets.Controllers
         {
             _moviesService = moviesService;
             _shoppingCart = shoppingCart;
-            _ordersService = ordersService;
+             _ordersService = ordersService;
         }
 
         public async Task<IActionResult> Index()
-        {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            string userRole = User.FindFirstValue(ClaimTypes.Role);
+         {
+            string userId = " ";//User.FindFirstValue(ClaimTypes.NameIdentifier);
+                                //string userRole = User.FindFirstValue(ClaimTypes.Role);
 
-            var orders = await _ordersService.GetOrdersByUserIdAndRoleAsync(userId, userRole);
+            //var orders = await _ordersService.GetOrdersByUserIdAndRoleAsync(userId, userRole);
+            var orders = await _ordersService.GetOrdersByUserIdAsync(userId);
             return View(orders);
-        }
+          }
 
         public IActionResult ShoppingCart()
         {
@@ -71,8 +72,8 @@ namespace eTickets.Controllers
         public async Task<IActionResult> CompleteOrder()
         {
             var items = _shoppingCart.GetShoppingCartItems();
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
+            string userId = " "; //User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userEmailAddress = ""; //User.FindFirstValue(ClaimTypes.Email);
 
             await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
             await _shoppingCart.ClearShoppingCartAsync();
@@ -80,4 +81,6 @@ namespace eTickets.Controllers
             return View("OrderCompleted");
         }
     }
+    
 }
+
