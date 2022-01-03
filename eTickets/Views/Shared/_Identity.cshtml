@@ -27,14 +27,14 @@ else
                 </a>
             </li>
 
-            @*@if (User.IsInRole("Admin"))
+            @if (User.IsInRole("Admin"))
             {
                 <li>
                     <a class="dropdown-item" asp-controller="Account" asp-action="Users">
                         <i class="bi bi-people"></i> Users
                     </a>
                 </li>
-            }*@
+            }
         </ul>
     </div>
     <span style="padding: 5px;"></span>
